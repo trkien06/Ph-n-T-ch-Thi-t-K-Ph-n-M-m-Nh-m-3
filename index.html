@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teddy Home – Gấu Bông Chất Lượng Cao</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink: #c0626a;
+    --pink-light: #f3e2e2;
+    --pink-dark: #8e3d44;
+    --cream: #fff8f5;
+    --text: #2c1a1a;
+    --text-muted: #7a5a5a;
+    --white: #ffffff;
+    --radius: 20px;
+    --radius-lg: 32px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,248,245,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #f0d8d8;
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 700;
+    color: var(--pink);
+    text-decoration: none;
+    letter-spacing: 1px;
+  }
+  .logo span { color: var(--text); }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; font-size: 0.9rem; font-weight: 500;
+    color: var(--text-muted); transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--pink); }
+  .nav-cta {
+    background: var(--pink); color: #fff;
+    border: none; border-radius: 50px;
+    padding: 8px 20px; font-size: 0.88rem; font-weight: 500;
+    cursor: pointer; text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .nav-cta:hover { background: var(--pink-dark); transform: scale(1.03); }
+
+  /* HERO */
+  .hero {
+    display: flex; align-items: stretch;
+    min-height: 520px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin: 2rem;
+    box-shadow: 0 8px 40px rgba(192,98,106,0.12);
+  }
+  .hero-img {
+    flex: 0 0 55%;
+    position: relative; overflow: hidden;
+  }
+  .hero-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .hero-img:hover img { transform: scale(1.04); }
+  .hero-content {
+    flex: 1;
+    background: var(--white);
+    padding: 3rem 2.5rem;
+    display: flex; flex-direction: column; justify-content: center;
+    gap: 1.25rem;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--pink-light);
+    color: var(--pink-dark);
+    font-size: 0.8rem; font-weight: 600;
+    padding: 6px 14px; border-radius: 50px;
+    width: fit-content;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem; font-weight: 700;
+    color: var(--pink);
+    line-height: 1.3;
+  }
+  .hero-body {
+    font-size: 0.95rem; line-height: 1.8;
+    color: var(--text-muted);
+  }
+  .hero-body strong { color: var(--text); }
+
+  /* CATEGORIES */
+  .section { margin: 2rem; }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; font-weight: 600;
+    text-align: center;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+  }
+  .cat-box {
+    background: var(--pink-light);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem 2rem;
+    text-align: center;
+  }
+  .btn-group {
+    display: flex; flex-wrap: wrap;
+    gap: 10px; justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+  .btn {
+    background: var(--pink); color: #fff;
+    border: none; border-radius: 50px;
+    padding: 10px 22px;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 0.88rem; font-weight: 500;
+    cursor: pointer; text-decoration: none;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(192,98,106,0.2);
+  }
+  .btn:hover {
+    background: var(--pink-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(192,98,106,0.3);
+  }
+  .more-link { font-size: 0.9rem; color: var(--text-muted); }
+  .more-link a { color: var(--pink); font-weight: 500; text-decoration: underline; }
+
+  /* POSTS */
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+  }
+  .post-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid #f0d8d8;
+    transition: transform 0.25s, box-shadow 0.25s;
+    display: flex; flex-direction: column;
+  }
+  .post-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(192,98,106,0.15);
+  }
+  .post-card img {
+    width: 100%; height: 160px;
+    object-fit: cover;
+    transition: transform 0.4s;
+  }
+  .post-card:hover img { transform: scale(1.05); }
+  .post-card-body { padding: 1rem 1.1rem; flex: 1; }
+  .post-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+    text-decoration: none; display: block;
+  }
+  .post-card-title:hover { color: var(--pink); }
+  .post-card-excerpt {
+    font-size: 0.83rem; line-height: 1.6;
+    color: var(--text-muted);
+  }
+  .post-card-date {
+    font-size: 0.78rem; color: #b08080;
+    padding: 0.6rem 1.1rem;
+    border-top: 1px solid #f0d8d8;
+  }
+
+  /* FOOTER */
+  footer {
+    margin: 3rem 2rem 2rem;
+    padding: 2rem;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border: 1px solid #f0d8d8;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+  footer .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-weight: 700;
+    color: var(--pink);
+    margin-bottom: 0.5rem;
+  }
+
+  /* FADE IN */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero        { animation: fadeUp 0.6s ease both; }
+  .cat-box     { animation: fadeUp 0.6s ease 0.15s both; }
+  .posts-grid  { animation: fadeUp 0.6s ease 0.25s both; }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .hero { flex-direction: column; margin: 1rem; min-height: auto; }
+    .hero-img { flex: 0 0 240px; }
+    .hero-content { padding: 1.5rem; }
+    .section { margin: 1rem; }
+    nav { padding: 0 1rem; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">Teddy<span>Home</span></a>
+  <ul class="nav-links">
+    <li><a href="#categories">Sản phẩm</a></li>
+    <li><a href="#blog">Bài viết</a></li>
+    <li><a href="#">Về chúng tôi</a></li>
+    <li><a href="#">Liên hệ</a></li>
+  </ul>
+  <a href="#categories" class="nav-cta">Mua ngay</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img">
+    <img src="https://gomi.vn/uploads/images/banners/Thumnail%20b%C3%A0i%20vi%E1%BA%BFt/chat%20luong.png"
+         alt="Chất lượng Teddy Home" />
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">✨ Cam kết chất lượng</div>
+    <h1 class="hero-title">Chất lượng gấu nhà Teddy Home</h1>
+    <p class="hero-body">
+      Chất lượng gấu tại Teddy Home được khẳng định qua quy trình tuyển chọn vật liệu khắt khe.
+      Chúng mình sử dụng <strong>bông trắng tinh khiết ☁️ 7D</strong> kết hợp với công nghệ bông xoắn đa chiều,
+      tạo độ phồng tự nhiên và khả năng phục hồi form dáng cực tốt. Lớp vỏ ngoài được dệt từ
+      sợi tổng hợp cao cấp 🧵, tạo độ mướt nhẹ và an toàn tuyệt đối cho sức khỏe người dùng ❤️.
+    </p>
+    <p class="hero-body">
+      Đặc biệt, với thiết kế đa dạng và đường may chắc chắn 🛡️, sản phẩm của Teddy Home không chỉ
+      đáp ứng tiêu chuẩn thẩm mỹ cao mà còn cực kỳ bền bỉ, dễ dàng vệ sinh và giặt máy mà
+      không lo bay màu hay biến dạng.
+    </p>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="section" id="categories">
+  <div class="cat-box">
+    <h2 class="section-title">NHIỀU LOẠI MẪU MÃ</h2>
+    <div class="btn-group">
+      <a class="btn" href="https://teddyhome.vn/gau-teddy/">Gấu Teddy</a>
+      <a class="btn" href="https://teddyhome.vn/gau-hoat-hinh/">Gấu hoạt hình</a>
+      <a class="btn" href="https://teddyhome.vn/goi-bong/">Gối bông</a>
+      <a class="btn" href="https://teddyhome.vn/phu-kien/">Phụ kiện</a>
+      <a class="btn" href="https://teddyhome.vn/hoa-bong/">Hoa Bông</a>
+      <a class="btn" href="https://teddyhome.vn/goi-bong/">Gối Ôm Lạnh</a>
+      <a class="btn" href="https://teddyhome.vn/goi-bong/">Gấu ôm văn phòng</a>
+    </div>
+    <p class="more-link">Bạn còn chần chờ? <a href="https://teddyhome.vn/san-pham/">Tìm hiểu thêm.</a></p>
+  </div>
+</section>
+
+<!-- BLOG POSTS -->
+<section class="section" id="blog">
+  <h2 class="section-title" style="text-align:left;letter-spacing:0;margin-bottom:1rem;">Bài viết mới nhất</h2>
+  <div class="posts-grid">
+    <div class="post-card">
+      <img src="https://gomi.vn/uploads/images/banners/Thumnail%20b%C3%A0i%20vi%E1%BA%BFt/chat%20luong.png" alt="Hoa bông" />
+      <div class="post-card-body">
+        <a class="post-card-title" href="https://teddyhome.vn/">Hoa bông Teddy Home</a>
+        <p class="post-card-excerpt">Khám phá bộ sưu tập hoa bông xinh xắn, món quà tặng ý nghĩa cho người thân yêu trong mọi dịp đặc biệt.</p>
+      </div>
+      <div class="post-card-date">25/04/2026</div>
+    </div>
+    <div class="post-card">
+      <img src="https://gomi.vn/uploads/images/banners/Thumnail%20b%C3%A0i%20vi%E1%BA%BFt/chat%20luong.png" alt="Gấu văn phòng" />
+      <div class="post-card-body">
+        <a class="post-card-title" href="https://teddyhome.vn/">Gấu ôm văn phòng</a>
+        <p class="post-card-excerpt">Gấu ôm siêu mềm, bạn đồng hành lý tưởng cho những giờ làm việc dài, giúp giảm stress hiệu quả.</p>
+      </div>
+      <div class="post-card-date">20/04/2026</div>
+    </div>
+    <div class="post-card">
+      <img src="https://gomi.vn/uploads/images/banners/Thumnail%20b%C3%A0i%20vi%E1%BA%BFt/chat%20luong.png" alt="Gối lạnh" />
+      <div class="post-card-body">
+        <a class="post-card-title" href="https://teddyhome.vn/">Gối ôm lạnh mùa hè</a>
+        <p class="post-card-excerpt">Giải pháp mát lạnh cho mùa hè, chất liệu thoáng khí, dễ giặt và bền đẹp theo năm tháng.</p>
+      </div>
+      <div class="post-card-date">15/04/2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">TeddyHome</div>
+  <p>© 2026 Teddy Home – Gấu bông chất lượng cao. Yêu thương từng đường chỉ.</p>
+</footer>
+
+</body>
+</html>
